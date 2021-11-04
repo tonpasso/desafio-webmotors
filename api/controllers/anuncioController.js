@@ -50,6 +50,7 @@ const updateAnuncio = (async (req, res, next) => {
   const { marca, modelo, versao, ano, quilometragem, observacao } = req.body;
   try {
     const result = await AnuncioModel.update(id, marca, modelo, versao, ano, quilometragem, observacao);
+    console.log(result)
 
     res.status(200).json(result);
   } catch (error) {
