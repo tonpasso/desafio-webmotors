@@ -39,7 +39,8 @@ const getById = async (id) => {
 
 const update = async (id, marca, modelo, versao, ano, quilometragem, observacao) => {
   try {
-    await connection.query('UPDATE AnuncioWebmotors SET marca = ?, modelo = ?, versao = ?, ano = ?, quilometragem = ?, observacao = ? WHERE id = ?', [marca, modelo, versao, ano, quilometragem, observacao, id])
+    const result = await connection.query('UPDATE AnuncioWebmotors SET marca = ?, modelo = ?, versao = ?, ano = ?, quilometragem = ?, observacao = ? WHERE id = ?', [marca, modelo, versao, ano, quilometragem, observacao, id]);
+    return result;
   } catch (err) {
     console.error(err);
     return process.exit(1);
@@ -48,10 +49,10 @@ const update = async (id, marca, modelo, versao, ano, quilometragem, observacao)
 
 const exclude = async (id) => {
   try {
-    const result = await getById(id);
-    if (!result) return {}
+    // const result = await getById(id);
+    // if (!result) return {}
     await connection.query('DELETE FROM AnuncioWebmotors WHERE id = ?', [id])
-    return result;
+    // return result;
   } catch (err) {
     console.error(err);
     return process.exit(1);
