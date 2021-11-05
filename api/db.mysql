@@ -1,0 +1,19 @@
+DROP DATABASE IF EXISTS teste_webmotors;
+CREATE DATABASE IF NOT EXISTS teste_webmotors;
+USE teste_webmotors;
+
+CREATE TABLE IF NOT EXISTS AnuncioWebmotors (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    marca VARCHAR(45) NOT NULL,
+    modelo VARCHAR(45) NOT NULL,
+    versao VARCHAR(45) NOT NULL,
+    ano INT NOT NULL,
+    quilometragem INT NOT NULL,
+    observacao TEXT NOT NULL
+);
+
+INSERT INTO AnuncioWebmotors (marca, modelo, versao, ano, quilometragem, observacao)
+VALUES ('Honda', 'City', '1.5 DX 16V FLEX 4P', 2016, 20000, 'Semi Novo'),
+       ('Honda', 'City', '2.0 EXL 4X4 16V GASOLINA 4P', 2018, 15000, 'Semi Novo'),
+       ('Chevrolet', 'Astra', '1.8 16V EVO FLEX', 2017, 32000, 'Semi Novo');
+SELECT * FROM AnuncioWebmotors;
