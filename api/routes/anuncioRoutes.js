@@ -10,7 +10,7 @@ router
 
 router
   .route('/update/:id')
-  .put(anuncioController.updateAnuncio);
+  .patch(anuncioController.updateAnuncio);
 
 router
   .route('/delete/:id')
